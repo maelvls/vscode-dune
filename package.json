@@ -2,9 +2,9 @@
     "name": "dune",
     "displayName": "Dune",
     "description": "Dune/Jbuilder, the OCaml & Reason build system",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "maelvalais",
-    "repository": "https://github.com/mealvalais/vscode-dune",
+    "repository": "https://github.com/maelvalais/vscode-dune",
     "icon": "images/dune.png",
     "license": "MIT",
     "engines": {
