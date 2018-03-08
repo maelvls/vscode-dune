@@ -127,11 +127,16 @@
 				"1": {
 					"name": "keyword.other.dune"
 				}
-			}
+			},
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
 		},
 		{
 			"name": "meta.stanza.lib-or-exec.buildable.dune",
-			"begin": "\\(\\s*(preprocess|preprocessor_deps|lint|modules|modules_without_implementation|libraries|flags|ocamlc_flags|ocamlopt_flags|js_of_ocaml|allow_overlapping_dependencies)\\s",
+			"begin": "\\(\\s*(preprocess|preprocessor_deps|lint|modules|modules_without_implementation|libraries|flags|ocamlc_flags|ocamlopt_flags|js_of_ocaml|allow_overlapping_dependencies|per_module)\\s",
 			"end": "\\)",
 			"beginCaptures": {
 				"1": {
@@ -140,35 +145,35 @@
 			},
 			"patterns": [
 				{
-					"name": "meta.stanza.lib-or-exec.buildable.preprocess.dune",
-					"begin": "\\(\\s*(no_preprocessing|action|pps)\\s",
-					"end": "\\)",
-					"beginCaptures": {
-						"1": {
-							"name": "keyword.other.dune"
-						}
-					},
-					"patterns": [
-						{
-							"include": "$self"
-						}
-					]
-				},
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"name": "meta.stanza.lib-or-exec.buildable.preprocess.dune",
+			"begin": "\\(\\s*(no_preprocessing|action|pps)\\s",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.dune"
+				}
+			},
+			"patterns": [
 				{
-					"name": "meta.stanza.lib-or-exec.buildable.preprocess_deps.dune",
-					"begin": "\\(\\s*(file|alias|alias_rec|glob_files|files_recursively_in)\\s",
-					"end": "\\)",
-					"beginCaptures": {
-						"1": {
-							"name": "keyword.other.dune"
-						}
-					},
-					"patterns": [
-						{
-							"include": "$self"
-						}
-					]
-				},
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"name": "meta.stanza.lib-or-exec.buildable.preprocess_deps.dune",
+			"begin": "\\(\\s*(file|alias|alias_rec|glob_files|files_recursively_in)\\s",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.dune"
+				}
+			},
+			"patterns": [
 				{
 					"include": "$self"
 				}

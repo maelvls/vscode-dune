@@ -202,12 +202,19 @@
             <string>keyword.other.dune</string>
           </dict>
         </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>$self</string>
+          </dict>
+        </array>
       </dict>
       <dict>
         <key>name</key>
         <string>meta.stanza.lib-or-exec.buildable.dune</string>
         <key>begin</key>
-        <string>\(\s*(preprocess|preprocessor_deps|lint|modules|modules_without_implementation|libraries|flags|ocamlc_flags|ocamlopt_flags|js_of_ocaml|allow_overlapping_dependencies)\s</string>
+        <string>\(\s*(preprocess|preprocessor_deps|lint|modules|modules_without_implementation|libraries|flags|ocamlc_flags|ocamlopt_flags|js_of_ocaml|allow_overlapping_dependencies|per_module)\s</string>
         <key>end</key>
         <string>\)</string>
         <key>beginCaptures</key>
@@ -221,51 +228,51 @@
         <key>patterns</key>
         <array>
           <dict>
-            <key>name</key>
-            <string>meta.stanza.lib-or-exec.buildable.preprocess.dune</string>
-            <key>begin</key>
-            <string>\(\s*(no_preprocessing|action|pps)\s</string>
-            <key>end</key>
-            <string>\)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.other.dune</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>$self</string>
-              </dict>
-            </array>
+            <key>include</key>
+            <string>$self</string>
           </dict>
+        </array>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>meta.stanza.lib-or-exec.buildable.preprocess.dune</string>
+        <key>begin</key>
+        <string>\(\s*(no_preprocessing|action|pps)\s</string>
+        <key>end</key>
+        <string>\)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
           <dict>
             <key>name</key>
-            <string>meta.stanza.lib-or-exec.buildable.preprocess_deps.dune</string>
-            <key>begin</key>
-            <string>\(\s*(file|alias|alias_rec|glob_files|files_recursively_in)\s</string>
-            <key>end</key>
-            <string>\)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>keyword.other.dune</string>
-              </dict>
-            </dict>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>$self</string>
-              </dict>
-            </array>
+            <string>keyword.other.dune</string>
           </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>$self</string>
+          </dict>
+        </array>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>meta.stanza.lib-or-exec.buildable.preprocess_deps.dune</string>
+        <key>begin</key>
+        <string>\(\s*(file|alias|alias_rec|glob_files|files_recursively_in)\s</string>
+        <key>end</key>
+        <string>\)</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>keyword.other.dune</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
           <dict>
             <key>include</key>
             <string>$self</string>
