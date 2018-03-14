@@ -1,7 +1,7 @@
 Dune for vscode
 ===============
 
-Syntax coloring and linting for Dune/Jbuilder files in vscode.
+Syntax coloring ~~and linting~~ for Dune/Jbuilder files in vscode.
 
 ![VS Code screenshot](images/screenshot.png)
 
