@@ -1,8 +1,8 @@
 {
     "name": "dune",
     "displayName": "Dune",
-    "description": "Dune/Jbuilder, the OCaml & Reason build system",
-    "version": "0.0.2",
+    "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
+    "version": "0.0.3",
     "publisher": "maelvalais",
     "repository": "https://github.com/maelvalais/vscode-dune",
     "icon": "images/dune.png",
@@ -23,7 +23,7 @@
             "properties": {
                 "dune.path": {
                     "type": "string",
-                    "default": "jbuilder",
+                    "default": "dune",
                     "description": "Path to dune."
                 },
                 "dune.lintOnChange": {
@@ -44,7 +44,7 @@
                 "dune.enableLint": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enable the linter using jbuilder."
+                    "description": "Enable the linter using dune."
                 }
             }
         },
