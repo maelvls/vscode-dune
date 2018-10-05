@@ -2,8 +2,6 @@
 
 import * as vscode from 'vscode';
 import * as child_process from 'child_process';
-import * as Path from 'path';
-import * as Fs from 'fs';
 import { log } from 'util';
 
 const compareVersions = require('compare-versions');
