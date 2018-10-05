@@ -77,11 +77,11 @@
         "start": "node build.js -w"
     },
     "devDependencies": {
-        "vscode": "^1.1.0",
-        "typescript": "^2.8",
+        "glob-watcher": "latest",
         "js-yaml": "latest",
         "plist": "latest",
-        "glob-watcher": "latest"
+        "typescript": "^2.8",
+        "vscode": "^1.1.21"
     },
     "dependencies": {
         "get-stream": "^3.0.0",
