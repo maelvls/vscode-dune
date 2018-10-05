@@ -71,16 +71,17 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "vscode:prepublish": "node ./node_modules/typescript/bin/tsc",
+        "compile": "node ./node_modules/typescript/bin/tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "start": "node build.js -w"
     },
     "devDependencies": {
+        "@types/node": "^10.11.2",
         "glob-watcher": "latest",
         "js-yaml": "latest",
         "plist": "latest",
-        "typescript": "^2.8",
+        "typescript": "^2.9.2",
         "vscode": "^1.1.21"
     },
     "dependencies": {
