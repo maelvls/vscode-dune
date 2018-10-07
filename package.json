@@ -2,7 +2,7 @@
     "name": "dune",
     "displayName": "Dune",
     "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "maelvalais",
     "repository": "https://github.com/maelvalais/vscode-dune",
     "icon": "images/dune.png",
@@ -13,10 +13,6 @@
     "categories": [
         "Languages"
     ],
-    "activationEvents": [
-        "onLanguage:dune"
-    ],
-    "main": "./out/src/extension",
     "contributes": {
         "configuration": {
             "title": "Dune configuration",

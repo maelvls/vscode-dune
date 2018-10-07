@@ -3,7 +3,10 @@
     "module": "commonjs",
     "target": "es6",
     "lib": ["es6"],
-    "outDir": "out"
+    "outDir": "out",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "."
   },
   "exclude": ["node_modules", "out"]
 }
