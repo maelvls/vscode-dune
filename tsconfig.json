@@ -2,15 +2,11 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "moduleResolution": "node",
+    "lib": ["es6"],
     "outDir": "out",
-    "noLib": true,
+    "moduleResolution": "node",
     "sourceMap": true,
-    "allowJs": true,
     "rootDir": "."
   },
-  "exclude": [
-    "node_modules",
-    "out"
-  ]
+  "exclude": ["node_modules", "out"]
 }

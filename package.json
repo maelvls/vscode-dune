@@ -1,8 +1,8 @@
 {
     "name": "dune",
     "displayName": "Dune",
-    "description": "Dune/Jbuilder, the OCaml & Reason build system",
-    "version": "0.0.2",
+    "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
+    "version": "0.0.4",
     "publisher": "maelvalais",
     "repository": "https://github.com/maelvalais/vscode-dune",
     "icon": "images/dune.png",
@@ -13,17 +13,13 @@
     "categories": [
         "Languages"
     ],
-    "activationEvents": [
-        "onLanguage:dune"
-    ],
-    "main": "./out/src/extension",
     "contributes": {
         "configuration": {
             "title": "Dune configuration",
             "properties": {
                 "dune.path": {
                     "type": "string",
-                    "default": "jbuilder",
+                    "default": "dune",
                     "description": "Path to dune."
                 },
                 "dune.lintOnChange": {
@@ -44,7 +40,7 @@
                 "dune.enableLint": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enable the linter using jbuilder."
+                    "description": "Enable the linter using dune."
                 }
             }
         },
@@ -71,17 +67,18 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "vscode:prepublish": "node ./node_modules/typescript/bin/tsc",
+        "compile": "node ./node_modules/typescript/bin/tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "start": "node build.js -w"
     },
     "devDependencies": {
-        "vscode": "^1.1.0",
-        "typescript": "^2.8",
+        "@types/node": "^10.11.2",
+        "glob-watcher": "latest",
         "js-yaml": "latest",
         "plist": "latest",
-        "glob-watcher": "latest"
+        "typescript": "^2.9.2",
+        "vscode": "^1.1.21"
     },
     "dependencies": {
         "get-stream": "^3.0.0",
