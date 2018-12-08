@@ -3,6 +3,6 @@
     // redhat.vscode-yaml and you will get all the fancy autocompletion you
     // usually only get in json files containing a schema.
     "yaml.schemas": {
-        "https://cdn.rawgit.com/martinring/tmlanguage/master/tmlanguage.json": "*.YAML-tmLanguage",
+        "https://cdn.jsdelivr.net/gh/martinring/tmlanguage/tmlanguage.json": "*.YAML-tmLanguage",
     }
 }
