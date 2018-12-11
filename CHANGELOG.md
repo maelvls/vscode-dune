@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the touist tmLanguage files will be logged here.
 
-## 0.0.3
+## 0.0.5
 
 - fixed security issues (flatmap)
 - use ';' as default line-comment

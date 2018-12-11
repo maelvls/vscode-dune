@@ -2,7 +2,7 @@
     "name": "dune",
     "displayName": "Dune",
     "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "maelvalais",
     "repository": "https://github.com/maelvalais/vscode-dune",
     "icon": "images/dune.png",
