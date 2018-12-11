@@ -81,7 +81,7 @@
         "vscode": "^1.1.21"
     },
     "dependencies": {
-        "get-stream": "^3.0.0",
+        "get-stream": "latest",
         "compare-versions": "latest"
     }
 }
