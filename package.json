@@ -1,87 +1,92 @@
 {
-    "name": "dune",
-    "displayName": "Dune",
-    "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
-    "version": "0.0.5",
-    "publisher": "maelvalais",
-    "repository": "https://github.com/maelvalais/vscode-dune",
-    "icon": "images/dune.png",
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.6.0"
-    },
-    "categories": [
-        "Languages"
-    ],
-    "contributes": {
-        "configuration": {
-            "title": "Dune configuration",
-            "properties": {
-                "dune.path": {
-                    "type": "string",
-                    "default": "dune",
-                    "description": "Path to dune."
-                },
-                "dune.lintOnChange": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Do lint when made changes."
-                },
-                "dune.lintOnSave": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Do lint when save document."
-                },
-                "dune.lintDelay": {
-                    "type": "number",
-                    "default": 500,
-                    "description": "Time to delay lint when made changes."
-                },
-                "dune.enableLint": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Enable the linter using dune."
-                }
-            }
+  "name": "dune",
+  "displayName": "Dune",
+  "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
+  "version": "0.0.6",
+  "publisher": "maelvalais",
+  "repository": "https://github.com/maelvalais/vscode-dune",
+  "icon": "images/dune.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.6.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Dune configuration",
+      "properties": {
+        "dune.path": {
+          "type": "string",
+          "default": "dune",
+          "description": "Path to dune."
         },
-        "languages": [
-            {
-                "id": "dune",
-                "aliases": [
-                    "Dune",
-                    "Jbuilder"
-                ],
-                "extensions": [
-                    "dune",
-                    "jbuild"
-                ],
-                "configuration": "./dune.configuration.json"
-            }
+        "dune.lintOnChange": {
+          "type": "boolean",
+          "default": true,
+          "description": "Do lint when made changes."
+        },
+        "dune.lintOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Do lint when save document."
+        },
+        "dune.lintDelay": {
+          "type": "number",
+          "default": 500,
+          "description": "Time to delay lint when made changes."
+        },
+        "dune.enableLint": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the linter using dune."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "dune",
+        "aliases": [
+          "Dune",
+          "Jbuilder"
         ],
-        "grammars": [
-            {
-                "language": "dune",
-                "scopeName": "source.dune",
-                "path": "./syntaxes/Dune.tmLanguage"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "node ./node_modules/typescript/bin/tsc",
-        "compile": "node ./node_modules/typescript/bin/tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "start": "node build.js -w"
-    },
-    "devDependencies": {
-        "@types/node": "^10.11.2",
-        "glob-watcher": "latest",
-        "js-yaml": "latest",
-        "plist": "latest",
-        "typescript": "^2.9.2",
-        "vscode": "^1.1.21"
-    },
-    "dependencies": {
-        "get-stream": "latest",
-        "compare-versions": "latest"
-    }
+        "extensions": [
+          "dune",
+          "jbuild"
+        ],
+        "configuration": "./dune.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dune",
+        "scopeName": "source.dune",
+        "path": "./syntaxes/Dune.tmLanguage"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc",
+    "compile": "node ./node_modules/typescript/bin/tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "start": "node build.js -w"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "glob-watcher": "latest",
+    "js-yaml": "^3.13.1",
+    "plist": "latest",
+    "typescript": "^3.7.3",
+    "vscode": "^1.1.36"
+  },
+  "dependencies": {
+    "compare-versions": "^3.5.1",
+    "get-stream": "^5.1.0"
+  },
+  "__metadata": {
+    "id": "6e49f289-d7d7-43ce-95f1-0c00f375e1f6",
+    "publisherDisplayName": "maelvalais",
+    "publisherId": "3f5c0d22-1c86-4a4a-89cf-469106f50752"
+  }
 }
