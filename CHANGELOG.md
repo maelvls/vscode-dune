@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to the touist tmLanguage files will be logged here.
 
+## 0.0.6
+
+Deprecate this extension. Please use the official
+[ocamllabs/vscode-ocaml-platform](https://github.com/ocamllabs/vscode-ocaml-platform)
+instead.
+
 ## 0.0.5
 
 - fixed security issues (flatmap)
