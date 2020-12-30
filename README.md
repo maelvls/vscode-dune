@@ -1,6 +1,8 @@
 Dune for vscode
 ===============
 
+> **⚠️ Deprecated**. Please use the official [ocamllabs/vscode-ocaml-platform](https://github.com/ocamllabs/vscode-ocaml-platform) instead.
+
 Syntax coloring ~~and linting~~ for Dune/Jbuilder files in vscode. It is inspired by the [emacs], [vim] and [atom] plugins.
 
 ![VS Code screenshot](images/screenshot.png)
