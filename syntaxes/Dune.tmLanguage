@@ -10,6 +10,7 @@
     <array>
       <string>jbuild</string>
       <string>dune</string>
+      <string>dune-project</string>
     </array>
     <key>patterns</key>
     <array>
@@ -21,7 +22,7 @@
         <key>name</key>
         <string>meta.stanza.dune</string>
         <key>begin</key>
-        <string>\(\s*(library|rule|executable|executables|rule|ocamllex|ocamlyacc|menhir|install|alias|copy_files|copy_files#|jbuild_version|include)\s</string>
+        <string>\(\s*(lang|using|library|rule|executable|executables|rule|ocamllex|ocamlyacc|menhir|install|alias|copy_files|copy_files#|jbuild_version|include)\s</string>
         <key>end</key>
         <string>\)</string>
         <key>beginCaptures</key>

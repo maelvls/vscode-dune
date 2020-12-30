@@ -1,6 +1,6 @@
 {
-  "name": "dune",
-  "displayName": "Dune",
+  "name": "dune-deprecated",
+  "displayName": "Dune (deprecated)",
   "description": "Dune, the OCaml & Reason build system (previously Jbuilder)",
   "version": "0.0.6",
   "publisher": "maelvalais",
@@ -52,6 +52,7 @@
           "Jbuilder"
         ],
         "extensions": [
+          "dune-project",
           "dune",
           "jbuild"
         ],
@@ -81,7 +82,6 @@
     "vscode": "^1.1.36"
   },
   "dependencies": {
-    "compare-versions": "^3.5.1",
     "get-stream": "^5.1.0"
   },
   "__metadata": {

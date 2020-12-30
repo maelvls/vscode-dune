@@ -7,7 +7,7 @@ patterns:
   - include: "#comments"
 
   - name: meta.stanza.dune
-    begin: \(\s*(library|rule|executable|executables|rule|ocamllex|ocamlyacc|menhir|install|alias|copy_files|copy_files#|jbuild_version|include)\s
+    begin: \(\s*(lang|using|library|rule|executable|executables|rule|ocamllex|ocamlyacc|menhir|install|alias|copy_files|copy_files#|jbuild_version|include)\s
     end: \)
     beginCaptures:
       "1": { name: meta.class.stanza.dune }

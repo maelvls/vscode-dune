@@ -4,17 +4,9 @@ import * as vscode from "vscode";
 import * as child_process from "child_process";
 import { log } from "util";
 
-const compareVersions = require("compare-versions");
-
 let getStream = require("get-stream");
 let configuration = vscode.workspace.getConfiguration("dune");
-let language = "sat";
 let enabled = configuration.get<boolean>("enableLint");
-let version = "";
-let status = vscode.window.createStatusBarItem(
-  vscode.StatusBarAlignment.Right,
-  0
-);
 
 export async function activate(context: vscode.ExtensionContext) {
   child_process.exec(
@@ -39,16 +31,22 @@ export async function activate(context: vscode.ExtensionContext) {
 
   if (!enabled) return;
 
-  let toVsPos = pos => {
+  let toVsPos = (pos: { line: number; col: number }) => {
     return new vscode.Position(pos.line - 1, pos.col - 1);
   };
   let fromVsPos = (pos: vscode.Position) => {
     return { line: pos.line + 1, col: pos.character + 1 };
   };
-  let toVsRange = (start, end) => {
+  let toVsRange = (
+    start: { line: number; col: number },
+    end: { line: number; col: number }
+  ) => {
     return new vscode.Range(toVsPos(start), toVsPos(end));
   };
-  let provideLinter = async (document: vscode.TextDocument, token) => {
+  let provideLinter = async (
+    document: vscode.TextDocument,
+    token: vscode.CancellationToken
+  ) => {
     if (
       !enabled ||
       token.isCancellationRequested ||
@@ -56,11 +54,11 @@ export async function activate(context: vscode.ExtensionContext) {
     )
       return null;
     let path = configuration.get<string>("path");
-    let cmd = [path];
+    let cmd = [path, "build", "@lint"];
     log("cmd: " + cmd.join(" "));
     let cp = child_process.spawn(cmd[0], cmd.slice(1), {});
 
-    cp.on("error", err => {
+    cp.on("error", _err => {
       let ret = vscode.window
         .showInformationMessage(`'${cmd[0]}' not found in path.`, "Disable")
         .then(ret => {
@@ -82,7 +80,7 @@ export async function activate(context: vscode.ExtensionContext) {
     cp.stdin.write(document.getText());
     cp.stdin.end();
 
-    let stderr = await getStream(cp.stderr).catch(err => {
+    let stderr = await getStream(cp.stderr).catch((err: string) => {
       log(err);
       vscode.window.showWarningMessage("dune error: " + err);
       return "";
@@ -90,10 +88,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
     cp.unref();
 
-    let handle_stderr = (stderr): vscode.Diagnostic[] => {
+    let handle_stderr = (stderr: string): vscode.Diagnostic[] => {
       let diagnostics: vscode.Diagnostic[] = [];
       log("stderr: " + stderr);
-      let fromType = type => {
+      let fromType = (type: string) => {
         switch (type) {
           case "error":
             return vscode.DiagnosticSeverity.Error;
@@ -103,13 +101,13 @@ export async function activate(context: vscode.ExtensionContext) {
       };
       let regex = /^([^:]+): line (\d+)-(\d+), col (\d+)-(\d+): (error|warning): (.*)$/gm;
       let pushDiag = (
-        file,
+        _file: string,
         line1: number,
         line2: number,
         col1: number,
         col2: number,
-        type,
-        msg
+        type: string,
+        msg: string
       ) => {
         let diag = new vscode.Diagnostic(
           toVsRange({ line: line1, col: col1 }, { line: line2, col: col2 }),
@@ -121,7 +119,9 @@ export async function activate(context: vscode.ExtensionContext) {
       };
 
       let msg = "";
-      let file, row1, row2, col1, col2, type;
+      let file: string;
+      let row1: number, row2: number, col1: number, col2: number;
+      let type: string;
       stderr.split("\n").forEach(line => {
         let match = regex.exec(line);
         if (match !== null) {
@@ -146,7 +146,6 @@ export async function activate(context: vscode.ExtensionContext) {
 
   let LINTER_DEBOUNCE_TIMER = new WeakMap();
   let LINTER_TOKEN_SOURCE = new WeakMap();
-  let LINTER_CLEAR_LISTENER = new WeakMap();
 
   let diagnosticCollection = vscode.languages.createDiagnosticCollection(
     "dune"
